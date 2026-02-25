@@ -1,8 +1,8 @@
 import flet as ft
 
-def main(page: ft.page):
+def main(page: ft.Page):
     page.title ="Propinas"
-    page.vertical_alignment = ft.MainAxisAligmnement.CENTER
+    page.vertical_alignment = ft.MainAxisAlignment.CENTER
     
     monto = ft.TextField(label = "Escribe el monto a pagar", width = 200)
     txt_valor = ft.Text(value = "5%", size = 25)
@@ -12,14 +12,14 @@ def main(page: ft.page):
         if monto.value != "":
             propina = int(monto.value) * slider.value / 100
             total = int(monto.value) + propina
-            txt_propina.value = "La propona e: " + str(round(propina,2))
+            txt_propina.value = "La propina e: " + str(round(propina,2))
             txt_total.value = "El total a pagar es: " + str(round(total, 2))
             page.update()
             
     txt_propina = ft.Text("La propina es: ", size = 25)
     txt_total = ft.Text("El total a pagar es: ", size = 25)
         
-    slider = ft.Sñider(min =5, max = 25, value = 5, on_change = clacular)
+    slider = ft.Slider(min =5, max = 25, value = 5, on_change = calcular)
     page.add(txt_valor, monto, slider, txt_propina, txt_total)
     
     
